@@ -2,8 +2,13 @@ package com.examples.HibernateExp;
 
 import org.hibernate.Session;
 
+import com.examples.HibernateExp.model.xml.Employee;
+
+
+
 /**
  * Hello world!
+ * 
  *
  */
 public class App 
@@ -20,11 +25,24 @@ public class App
 	        stock.setStockName("GETS");
 
 	        session.save(stock);*/
+	        if("xml".equals(args[0])){
+	        	 Employee emp = new Employee("firstName", "lastName", 1000);
+	 	        emp.setId(0);
+	 	        session.save(emp);
+	 	        session.getTransaction().commit();
+	 	        System.out.println("Done");
+	        }else{
+	        	
+	        	
+	        	
+		        	 com.examples.HibernateExp.model.annotations.Employee emp = new  com.examples.HibernateExp.model.annotations.Employee ("firstName", "lastName", 1000);
+		 	        emp.setId(0);
+		 	        session.save(emp);
+		 	        session.getTransaction().commit();
+		 	        System.out.println("Done");
+		        
+	        }
 	        
-	        Employee emp = new Employee("firstName", "lastName", 1000);
-	        emp.setId(0);
-	        session.save(emp);
-	        session.getTransaction().commit();
-	        System.out.println("Done");
+	       
 	    }
 }

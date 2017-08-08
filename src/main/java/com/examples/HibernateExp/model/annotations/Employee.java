@@ -1,9 +1,27 @@
-package com.examples.HibernateExp;
+package com.examples.HibernateExp.model.annotations;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "employee", catalog = "test" )
+
+
+
 
 public class Employee {
 	   private int id;
+	   
+	   
 	   private String firstName; 
+	   
 	   private String lastName;   
+	   
 	   private int salary;  
 
 	   public Employee() {}
@@ -12,18 +30,25 @@ public class Employee {
 	      this.lastName = lname;
 	      this.salary = salary;
 	   }
+	   
+	   @Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Column(name = "ID", unique = true, nullable = false)
 	   public int getId() {
 	      return id;
 	   }
 	   public void setId( int id ) {
 	      this.id = id;
 	   }
+	   
+	   @Column(name = "first_name")
 	   public String getFirstName() {
 	      return firstName;
 	   }
 	   public void setFirstName( String first_name ) {
 	      this.firstName = first_name;
 	   }
+	   @Column(name = "last_name")
 	   public String getLastName() {
 	      return lastName;
 	   }

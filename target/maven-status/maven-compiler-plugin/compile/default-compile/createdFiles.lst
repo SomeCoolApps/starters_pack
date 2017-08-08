@@ -1,0 +1,5 @@
+com/examples/HibernateExp/model/annotations/Employee.class
+com/examples/HibernateExp/App.class
+com/examples/HibernateExp/model/xml/Employee.class
+com/examples/HibernateExp/HibernateUtil.class
+com/examples/HibernateExp/model/xml/Stock.class
